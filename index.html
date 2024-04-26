@@ -134,7 +134,7 @@
         The processing results of our method during the night sky test. 
         Straylight were created by pointing a flashlight at the camera.
         Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
-        Even when confronted with significant straylight interference, our method reliably rejected false detections and precisely computed star centroids, leading to successful star identification
+        Even when confronted with significant straylight interference, our method reliably rejected false detections and precisely computed star centroids, leading to successful star identification.
       </h2>
     </div>
   </div>
@@ -189,7 +189,7 @@
           <h2 class="subtitle has-text-centered">
             Training data generation procedure of our method.
             The noiseless simulated star images are merged with noisy frames containing stray light captured by actual cameras to create training inputs to CNN. 
-            Additionally, two sets of training labels are generated: training labels 1, consisting of binary segmentation maps, and training labels 2, comprising distance maps
+            Additionally, two sets of training labels are generated: training labels 1, consisting of binary segmentation maps, and training labels 2, comprising distance maps.
           </h2>
         </div>
     </div>
@@ -218,7 +218,7 @@
           <!-- Your image here -->
           <img src="static/images/night_stray.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
-            While both models are affected by stray light, their accuracy remains comparable to typical commercial CubeSat star trackers
+            While both models are affected by stray light, their accuracy remains comparable to typical commercial CubeSat star trackers.
           </h2>
         </div>
         <div class="item" style="text-align: center;">
@@ -250,7 +250,9 @@
             type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
-            Our method (with MobileUNet)
+            Our method (with MobileUNet).
+            Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
+            Our method detects and identifies stars more consistently than the traditional method.
           </h2>
         </div>
         <div class="item item-video2">
@@ -285,7 +287,9 @@
             type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
-            Our method (with ELUNet)
+            Our method (with ELUNet).
+            Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
+            Our method achieves accurate star detection and centroiding in the presence of stray light, while the traditional method completely fails.
           </h2>
         </div>
         <div class="item item-video2">
@@ -295,7 +299,7 @@
             type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
-            Traditional Method (Sun et al's + Center of Gravity)
+            Traditional Method (Sun et al's + Center of Gravity).
           </h2>
         </div>
         <div class="item item-video1">
@@ -305,7 +309,7 @@
             type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
-            Our method with the presence of the moon
+            Our method performs well even in the presence of the moon.
           </h2>
         </div>
       </div>
