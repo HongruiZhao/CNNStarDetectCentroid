@@ -83,17 +83,6 @@
                       </a>
                     </span>
 
-                    <!-- Supplementary PDF link -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
                   <!-- Github link -->
                   <span class="link-block">
                     <a href="https://github.com/HongruiZhao/CNNStarDetectCentroid" target="_blank"
@@ -210,6 +199,7 @@
     <div class="container">
       <h2 class="title is-3">Experiment Results</h2>
         <div id="results-carousel" class="carousel results-carousel">
+
         <div class="item" style="text-align: center;">
           <!-- Your image here -->
           <img src="static/images/night.png" alt="MY ALT TEXT"/>
@@ -217,6 +207,7 @@
             Our method with two different CNN models (ELUNet and MobileUNet) achieve significantly better attitude determination accuracy than the traditional approaches in the night sky test.
           </h2>
         </div>
+
         <div class="item" style="text-align: center;">
           <!-- Your image here -->
           <img src="static/images/night_stray.png" alt="MY ALT TEXT"/>
@@ -224,6 +215,7 @@
             While both models are affected by stray light, their accuracy remains comparable to typical commercial CubeSat star trackers.
           </h2>
         </div>
+
         <div class="item" style="text-align: center;">
           <!-- Your image here -->
           <img src="static/images/TPU.png" alt="MY ALT TEXT"/>
@@ -231,6 +223,19 @@
             Our method can be executed in real-time on low-power edge AI processors.
           </h2>
         </div>
+
+        <div class="item" style="text-align: center;">
+          <!-- Your image here -->
+          <img src="static/images/attitude.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Attitude outputs of our method and the traditional methods.
+            The inertial-to-body attitude outputs were converted to 3-2-1 Euler angles representing right ascension, declination, and roll. 
+            The right ascension would be expected to change linearly at Earth's sidereal rate, while the declination and roll remain constant. 
+            The cross-boresight and around-boresight accuracy of a star tracker can be modeled as the standard deviations of the declination and roll.
+            Compared to the tradtional methods, our method, both with ELUNet and MobileUnet, generated more consistent attitude outputs due to its higher centroiding accuracy.
+          </h2>
+        </div>
+
     </div>
   </div>
   </div>
@@ -246,6 +251,7 @@
     <div class="container">
       <h2 class="title is-3">Night Sky Test</h2>
       <div id="results-carousel" class="carousel results-carousel">
+
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
@@ -258,6 +264,7 @@
             Our method detects and identifies stars more consistently than the traditional method.
           </h2>
         </div>
+
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
@@ -268,6 +275,7 @@
             Traditional Method (Sun et al's + Gaussian Grid)
           </h2>
         </div>
+
       </div>
     </div>
   </div>
