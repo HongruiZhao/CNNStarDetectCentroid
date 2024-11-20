@@ -1,9 +1,0 @@
-*.npy
-*.onnx
-runs
-*.pt
-!MobileUNet_1.pt
-!MobileUNet.onnx
-skycam/*
-*.png
-*.gif
