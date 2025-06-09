@@ -15,8 +15,13 @@
 ## Setup
 First clone the repository
 ```shell
-git clone https://github.com/HongruiZhao/CNNStarDetectCentroid.git
+git clone -b development --single-branch https://github.com/HongruiZhao/CNNStarDetectCentroid.git
 cd  CNNStarDetectCentroid
+```
+Create a conda environment 
+```shell
+conda create -n CNNStarDetectCentroid python=3.8
+conda activate CNNStarDetectCentroid
 ```
 
 ### 2, Activate conda environment 
