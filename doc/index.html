@@ -2,25 +2,15 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
   <meta name="description" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker">
   <meta property="og:title" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker"/>
   <meta property="og:description" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker"/>
   <meta property="og:url" content="https://hongruizhao.github.io/CNNStarDetectCentroid/"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
   <meta property="og:image" content="static/image/flowchart.png" />
   <meta property="og:image:width" content="1263"/>
   <meta property="og:image:height" content="751"/>
 
 
-  <!-- <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG"> -->
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <!-- <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
-  <meta name="twitter:card" content="summary_large_image"> -->
-  
-  <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker, Star tracker, convolutional neural network, CNN, star detection, star centroiding, attitude determination, CubeSat">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,8 +34,24 @@
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
 
-  <!-- for google verification -->
   <meta name="google-site-verification" content="ofm0KCCgUiCsQrrKi3ncA0XphB-kfgnLMKo0vmzyGRk" />
+
+  <style>
+    .rainbow-text {
+      background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-animation 5s linear infinite;
+      display: inline-block; /* Essential for the gradient to apply correctly */
+    }
+
+    @keyframes rainbow-animation {
+      to {
+        background-position: 200% center;
+      }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -55,10 +61,11 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <!-- Title here -->
             <h1 class="title is-1 publication-title">Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker</h1>
+            <h2 class="subtitle is-3 publication-title">
+              <span class="rainbow-text">Accepted by IEEE Transactions on Aerospace and Electronic Systems</span>
+            </h2>
             <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
               <span class="author-block">Hongrui Zhao,</span>
                 <span class="author-block"><a href="https://aerospace.illinois.edu/directory/profile/mlembeck">Michael F. Lembeck</a>,</span>
                   <span class="author-block">Adrian Zhuang,</span>
@@ -72,9 +79,8 @@
 
                   <div class="column has-text-centered">
                     <div class="publication-links">
-                         <!-- Arxiv PDF link -->
                       <span class="link-block">
-                        <a href="https://arxiv.org/abs/2404.19108" target="_blank"
+                        <a href="https://ieeexplore.ieee.org/document/10904117" target="_blank"
                         class="external-link button is-normal is-rounded is-dark">
                         <span class="icon">
                           <i class="fas fa-file-pdf"></i>
@@ -83,8 +89,7 @@
                       </a>
                     </span>
  
-                  <!-- Github link -->
-                  <!-- <span class="link-block">
+                  <span class="link-block">
                     <a href="https://github.com/HongruiZhao/CNNStarDetectCentroid" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
@@ -92,9 +97,8 @@
                     </span>
                     <span>Code</span>
                   </a>
-                </span>  -->
+                </span> 
 
-                <!-- ArXiv abstract Link -->
                 <span class="link-block">
                   <a href="https://arxiv.org/abs/2404.19108" target="_blank"
                   class="external-link button is-normal is-rounded is-dark">
@@ -113,12 +117,10 @@
 </section>
 
 
-<!-- Teaser video-->
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
       <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
         <source src="static/videos/March16Straylight_ELUNet.mp4"
         type="video/mp4">
       </video>
@@ -131,9 +133,6 @@
     </div>
   </div>
 </section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -156,17 +155,12 @@
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
-
-
-<!-- proposed method  -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Proposed Method</h2>
         <div id="results-carousel" class="carousel results-carousel">
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/flowchart.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             Flowchart of our star detection and centroiding method. 
@@ -176,7 +170,6 @@
           </h2>
         </div>
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/data.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             Training data generation procedure of our method.
@@ -188,12 +181,6 @@
   </div>
   </div>
   </section>
-<!-- proposed method -->
-
-
-
-
-<!-- Experiment Results  -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -201,7 +188,6 @@
         <div id="results-carousel" class="carousel results-carousel">
 
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/night.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             Our method with two different CNN models (ELUNet and MobileUNet) achieve significantly better attitude determination accuracy than the traditional approaches in the night sky test.
@@ -209,7 +195,6 @@
         </div>
 
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/night_stray.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             While both models are affected by stray light, their accuracy remains comparable to typical commercial CubeSat star trackers.
@@ -217,7 +202,6 @@
         </div>
 
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/TPU.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             Our method can be executed in real-time on low-power edge AI processors.
@@ -225,7 +209,6 @@
         </div>
 
         <div class="item" style="text-align: center;">
-          <!-- Your image here -->
           <img src="static/images/attitude.png" alt="MY ALT TEXT"/>
           <h2 class="subtitle has-text-centered">
             Attitude outputs of our method and the traditional methods.
@@ -240,12 +223,6 @@
   </div>
   </div>
   </section>
-<!-- Experiment Results -->
-
-
-
-
-<!-- Night Sky Test -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -253,7 +230,6 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/night_NN.mp4"
             type="video/mp4">
           </video>
@@ -265,7 +241,6 @@
         </div>
         <div class="item item-video2">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/night_baseline.mp4" type="video/mp4" />
           </video>
           <h2 class="subtitle has-text-centered">
@@ -276,12 +251,6 @@
     </div>
   </div>
 </section>
-<!-- End Night Sky Test -->
-
-
-
-
-<!-- Night Sky Test Stray light -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
@@ -289,7 +258,6 @@
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/straylight_NN.mp4"
             type="video/mp4">
           </video>
@@ -301,7 +269,6 @@
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/straylight_baseline.mp4"
             type="video/mp4">
           </video>
@@ -311,7 +278,6 @@
         </div>
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
             <source src="static/videos/Moon.mp4" type="video/mp4">
           </video>
           <h2 class="subtitle has-text-centered">
@@ -322,24 +288,7 @@
     </div>
   </div>
 </section>
-<!-- End Night Sky Test Stray light -->
-
-
-
-
-
-
-<!--BibTex citation -->
-  <!-- <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section> -->
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
+<footer class="footer">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-8">
@@ -357,11 +306,5 @@
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
+</body>
   </html>
