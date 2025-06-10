@@ -354,12 +354,8 @@ def run_baseline(img):
     #mask = detection_WITM(img.copy(), delta=-0.32, DELTA = 0.2, pixel_area=4) #March 11 night sky testg
 
     # conventional detection based on local threshold
-    #mask = detection_ST16(img.copy(), threshold=1.5, pixel_area=4)
-    mask = detection_erosion_dilation(img.copy(), gaussian_sigma=5, average_window_size=10, detection_sigma=3, pixel_area=3)
-    #mask = detection_erosion_dilation(img.copy(), gaussian_sigma=5, average_window_size=10, detection_sigma=2.2, pixel_area=4) #March 11 night sky testg
-    #mask = detection_erosion_dilation(img.copy(), gaussian_sigma=5, average_window_size=10, detection_sigma=2.5, pixel_area=4) #March 11 night sky testg, japan house
-    #mask = detection_erosion_dilation(img.copy(), gaussian_sigma=5, average_window_size=10, detection_sigma=1.5, pixel_area=4) #March 16 Failure
-
+    mask = detection_ST16(img.copy(), threshold=1.5, pixel_area=4)
+    
     # conventional centroiding
     #centroid_est = centroiding_CenterOfMass(img.copy(), mask, 3)
     centroid_est = centroiding_GaussianGrid(img.copy(), mask)
@@ -538,8 +534,7 @@ def main_video(args):
 
     # load neural net
     #model = torch.load("./saved_models/ELUNet_inter_2_90.pt").to(device)
-    model = torch.load("/home/jetson/Documents/star_sense/AI_Star_Tracker-/hardware/star_tracker_simulator_detect/saved_models/ELUnet_B10_50.pt").to(device)
-    #model = torch.load("./saved_models/MobileUNet_B10_50.pt").to(device)
+    model = torch.load("./saved_models/MobileUNet_B10_50.pt").to(device)
 
     model.eval()
 
