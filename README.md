@@ -15,31 +15,47 @@
 ## Setup
 First clone the repository
 ```shell
-git clone https://github.com/HongruiZhao/CNNStarDetectCentroid.git
+git clone -b development --single-branch https://github.com/HongruiZhao/CNNStarDetectCentroid.git
 cd  CNNStarDetectCentroid
 ```
+Create a conda environment 
+```shell
+conda create -n CNNStarDetectCentroid python=3.8
+conda activate CNNStarDetectCentroid
+```
+Install pytroch with cuda 11.8
+```shell
+pip3 install torch torchvision --index-url https://download.pytorch.org/whl/cu118
+```
+Install other python packages 
+```shell
+pip install matplotlib opencv-python scipy pandas tqdm thop gdown
+```
 
-### 2, Activate conda environment 
-* Open "Anaconda Powershell Promopt".  
-* Activate conda python environment by ```conda activate ai_star_tracker```.  
-* If you named your conda environment differently, you can check all your conda environment names by ```conda info --envs```.   
-* You need to install the following packages: 
-`pip install matplotlib opencv-python scipy pandas tqdm thop`.
-
-
-### 3, Run your first AI star tracker demo
-* go to the "hardware\star_tracker_simulator_detect" folder by ```cd PATH_TO_FOLDER```.  
-* make sure the star videos to be processed are in the folder "saved_results", and the train neural networks are in the folder "saved_models".  You can download test video here: https://drive.google.com/file/d/1iFCgP53cGZ1if_lJWfbFz7qWKfQnFRJI/view?usp=sharing.
-* For example, you want to run a demo on "video_Test3.npy" file, run ```python main_detection_centroiding.py --mode NN --input video --video_file video_Test3.npy```.
-
-
-## Star Tracker Simulator
-Go to "star_tracker_test_System\tutorials\README.md", you can details light. 
+## Nightsky videos
+Download our nightsky test video `video_Test3.npy` recorded with MT9V022 camera
+```shell
+cd hardware_experiment
+mkdir saved_results
+cd saved_results
+gdown --id 1iFCgP53cGZ1if_lJWfbFz7qWKfQnFRJI
+cd ..
+```
+* For more non straylight videos, change `id` to `1GxRY8bjWUDtSBRQuXRqOdqgUGGVbaXm_` or `1d-5s3l1tqr7-LotzIVaYLj3xz3nSUDY-`.
+* `1MKtcN-BGVzJCeHnqVky1nkWy64VJiUin` for stralight video.
+* `1AwpNSWLYxyYel-cjeH1Zpg2WJRxKS88D` for moonlight video. It  does not work very well since the camera was moving around during the recording.
 
 
 
-## Cameras 
-### 1, Arducam MT9V022
-Go to https://github.com/ArduCAM/ArduCAM_USB_Camera_Shield
+## Run 
+Run with `video_Test3.npy`
+```shell
+python main_detection_centroiding.py --mode NN --input video --video_file video_Test3.npy
+```
+* By default it will run our trained model `hardware_experiment/saved_models/MobileUNet_B10_50.pt`.  
+* If you want to run ELUnet, go into `hardware_experiment/main_detection_centroiding.py`, function `main_video()`, and comment out MobileUNet and uncomment ELUNet.  
+* Changing `--mode` to `baseline` will run the baseline methods defined in function `run_baseline()`.
 
 
+## Evaluation
+Use`hardware_experiment/evaluation.ipynb` to get attitude determination accuracy.
