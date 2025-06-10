@@ -41,6 +41,10 @@ cd saved_results
 gdown --id 1iFCgP53cGZ1if_lJWfbFz7qWKfQnFRJI
 cd ..
 ```
+* For more non straylight videos, change `id` to `1GxRY8bjWUDtSBRQuXRqOdqgUGGVbaXm_` or `1d-5s3l1tqr7-LotzIVaYLj3xz3nSUDY-`.
+* `1MKtcN-BGVzJCeHnqVky1nkWy64VJiUin` for stralight video.
+* `1AwpNSWLYxyYel-cjeH1Zpg2WJRxKS88D` for moonlight video. It  does not work very well since the camera was moving around during the recording.
+
 
 
 ## Run 
