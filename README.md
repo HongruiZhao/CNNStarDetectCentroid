@@ -31,10 +31,12 @@ Install other python packages
 ```shell
 pip install matplotlib opencv-python scipy pandas tqdm thop gdown
 ```
+
 Finally install tensorboard
 ```shell
 conda install tensorboard
 ```
+
 
 ## Nightsky videos
 Download our nightsky test video `video_Test3.npy` recorded with MT9V022 camera
@@ -80,3 +82,4 @@ python main_detection_centroiding.py --mode NN --input video --video_file video_
 
 ## Evaluation
 Use`hardware_experiment/evaluation.ipynb` to get attitude determination accuracy.
+
