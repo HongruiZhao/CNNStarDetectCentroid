@@ -49,9 +49,10 @@ cd ..
 ## Data generation 
 ```shell
 cd data_generation
+gdown --id 1_uvcg0AcxmWhJoxbO5dH1Y51mUlNPW3R
 python main_generate_data.py --data 1 --parent_dir "./training_data" --dark_frames_dir "./dark_frames_straylight"
 ```
-this will generate and save 2500 training images, 500 evaluation images, and 500 test images into `training_data` folder using the dark frames from `dark_frames_straylight`.
+this will generate and save 2500 training images, 500 evaluation images, and 500 test images into `training_data` folder using the dark frames from `dark_frames_straylight`. 
 
 ## Training 
 ```shell
