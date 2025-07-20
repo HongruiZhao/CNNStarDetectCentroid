@@ -7,3 +7,4 @@ runs
 skycam/*
 *.png
 *.gif
+*.pyc

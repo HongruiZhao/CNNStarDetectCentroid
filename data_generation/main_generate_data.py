@@ -311,6 +311,8 @@ def generate_and_save(star_img_sim_obj, num_sim, split, parent_dir):
         return 0
 
     # create folders
+    if not os.path.exists(parent_dir):
+        os.mkdir(parent_dir)
     os.mkdir(img_path)
     os.mkdir(dist_map_path)
     os.mkdir(seg_map_path)
@@ -372,13 +374,13 @@ if __name__ == "__main__":
 
     if args.data == 1:
         print("Generate training data")
-        generate_and_save(star_img_sim_obj, 1, "train", args.parent_dir)
+        generate_and_save(star_img_sim_obj, 2500, "train", args.parent_dir)
 
         print("Generate validation data")
-        generate_and_save(star_img_sim_obj, 1, "val", args.parent_dir)
+        generate_and_save(star_img_sim_obj, 500, "val", args.parent_dir)
 
         print("Generate test data")
-        generate_and_save(star_img_sim_obj, 1, "test", args.parent_dir)
+        generate_and_save(star_img_sim_obj, 500, "test", args.parent_dir)
 
     else:
         print("generate single image, calculate centroids, calculate centroid error, and visualization")

@@ -31,6 +31,10 @@ Install other python packages
 ```shell
 pip install matplotlib opencv-python scipy pandas tqdm thop gdown
 ```
+Finally install tensorboard
+```shell
+conda install tensorboard
+```
 
 ## Nightsky videos
 Download our nightsky test video `video_Test3.npy` recorded with MT9V022 camera
@@ -50,14 +54,18 @@ cd ..
 ```shell
 cd data_generation
 gdown --id 1_uvcg0AcxmWhJoxbO5dH1Y51mUlNPW3R
+unzip dark_frames_straylight.zip 
+```
+This will download two sets of dark frames: `dark_frames_Oct19` which only contains noise frames without straylight, and `dark_frames_straylight`.  
+```shell
 python main_generate_data.py --data 1 --parent_dir "./training_data" --dark_frames_dir "./dark_frames_straylight"
 ```
-this will generate and save 2500 training images, 500 evaluation images, and 500 test images into `training_data` folder using the dark frames from `dark_frames_straylight`. 
+This will generate and save 2500 training images, 500 evaluation images, and 500 test images into `training_data` folder using the dark frames from `dark_frames_straylight`. 
 
 ## Training 
 ```shell
 cd training
-python .\training_stepLR.py --trial 1 
+python training_stepLR.py --trial 1 
 ```
 
 ## Run 

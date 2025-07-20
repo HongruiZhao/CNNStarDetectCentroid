@@ -1,8 +1,10 @@
 import torch
 from torch.functional import norm
 from torch.utils import data
+from torch.utils.tensorboard import SummaryWriter
 import argparse
 import time
+import os 
 
 from neural_net.CentroidNet import CentroidNet
 from neural_net.mobile_unet import MobileUNet
@@ -16,6 +18,7 @@ from neural_net.elunet_resnet34 import ELUnet_ResNet34
 from loss_func import mse_loss, bce_loss
 from data_load import StarDataSet
 
+import numpy as np
 
 # global variable
 device = torch.device("cuda:0")
@@ -130,6 +133,9 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
+    if not os.path.exists('./saved_models'):
+        os.makedirs('./saved_models')
+    writer = SummaryWriter()
 
     # set manual seed
     torch.manual_seed(args.seed)
@@ -149,7 +155,7 @@ if __name__ == '__main__':
         model = torch.load(args.load).to(device)
         print("model {} is loaded!".format(args.load))
     # for saving training information 
-    writer = {'epoch':[], 'train_dist':[], 'train_seg':[], 'val_dist':[], 'val_seg':[]}
+    writer_info = {'epoch':[], 'train_dist':[], 'train_seg':[], 'val_dist':[], 'val_seg':[]}
 
 
     #---------------------- Set up datasets ----------------------#
@@ -179,13 +185,14 @@ if __name__ == '__main__':
     criterion_bce = bce_loss().to(device)
 
     for epoch in range(args.ep):
-        writer = training(model, criterion_mse, criterion_bce, optimizer, train_dataloader, val_dataloader, epoch, writer) 
+        writer_info = training(model, criterion_mse, criterion_bce, optimizer, train_dataloader, val_dataloader, epoch, writer_info) 
         scheduler.step() 
 
-        try:
-            torch.save(writer, "./runs/{}_{}.pt".format(model.__class__.__name__, args.trial) )
-        except IOError:
-            pass
+        writer.add_scalar('train_dist', writer_info['train_dist'][-1], epoch)
+        writer.add_scalar('train_seg', writer_info['train_seg'][-1], epoch)
+        writer.add_scalar('val_dist', writer_info['val_dist'][-1], epoch)
+        writer.add_scalar('val_seg', writer_info['val_seg'][-1], epoch)
+
 
         if (epoch) % 10 == 0:
             # get module name
