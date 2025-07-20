@@ -1,0 +1,8 @@
+*.npy
+test*.py
+*.png
+test.py
+*.zip
+
+/dark_frames
+/dark_frames_straylight
