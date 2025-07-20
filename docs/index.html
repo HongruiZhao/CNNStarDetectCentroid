@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker">
+  <meta property="og:title" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker"/>
+  <meta property="og:description" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker"/>
+  <meta property="og:url" content="https://hongruizhao.github.io/CNNStarDetectCentroid/"/>
+  <meta property="og:image" content="static/image/flowchart.png" />
+  <meta property="og:image:width" content="1263"/>
+  <meta property="og:image:height" content="751"/>
+
+
+  <meta name="keywords" content="Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker, Star tracker, convolutional neural network, CNN, star detection, star centroiding, attitude determination, CubeSat">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CNNStarDetectCentroid</title>
+  <link rel="icon" type="image/x-icon" href="static/images/blahaj.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <meta name="google-site-verification" content="ofm0KCCgUiCsQrrKi3ncA0XphB-kfgnLMKo0vmzyGRk" />
+
+  <style>
+    .rainbow-text {
+      background: linear-gradient(to right, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-animation 5s linear infinite;
+      display: inline-block; /* Essential for the gradient to apply correctly */
+    }
+
+    @keyframes rainbow-animation {
+      to {
+        background-position: 200% center;
+      }
+    }
+  </style>
+
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Real-Time Convolutional Neural Network-Based Star Detection and Centroiding Method for CubeSat Star Tracker</h1>
+            <h2 class="subtitle is-3 publication-title">
+              <span class="rainbow-text">Accepted by IEEE Transactions on Aerospace and Electronic Systems</span>
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Hongrui Zhao,</span>
+                <span class="author-block"><a href="https://aerospace.illinois.edu/directory/profile/mlembeck">Michael F. Lembeck</a>,</span>
+                  <span class="author-block">Adrian Zhuang,</span>
+                    <span class="author-block">Riya Shah,</span>
+                      <span class="author-block">Jesse Wei</span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">University of Illinois Urbana-Champaign</span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <span class="link-block">
+                        <a href="https://ieeexplore.ieee.org/document/10904117" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+ 
+                  <span class="link-block">
+                    <a href="https://github.com/HongruiZhao/CNNStarDetectCentroid" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> 
+
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2404.19108" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <source src="static/videos/March16Straylight_ELUNet.mp4"
+        type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        The processing results of our method during the night sky test. 
+        Straylight were created by pointing a flashlight at the camera.
+        Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
+        Even when confronted with significant straylight interference, our method reliably rejected false detections and precisely computed star centroids, leading to successful star identification.
+      </h2>
+    </div>
+  </div>
+</section>
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          Star trackers are one of the most accurate celestial sensors used for absolute attitude determination. 
+          The devices detect stars in captured images and accurately compute their projected centroids on an imaging focal plane with subpixel precision. 
+          Traditional algorithms for star detection and centroiding often rely on threshold adjustments for star pixel detection and pixel brightness weighting for centroid computation. 
+          However, challenges like high sensor noise and stray light can compromise algorithm performance. 
+          This article introduces a Convolutional Neural Network (CNN)-based approach for star detection and centroiding, tailored to address the issues posed by noisy star tracker images in the presence of stray light and other artifacts.
+          Trained using simulated star images overlayed with real sensor noise and stray light, the CNN produces both a binary segmentation map distinguishing star pixels from the background and a distance map indicating each pixel's proximity to the nearest star centroid. 
+          Leveraging this distance information alongside pixel coordinates transforms centroid calculations into a set of trilateration problems solvable via the least squares method.
+          Our method employs efficient UNet variants for the underlying CNN architectures, and the variants' performances are evaluated.
+          Comprehensive testing has been undertaken with synthetic image evaluations, hardware-in-the-loop assessments, and night sky tests. The tests consistently demonstrated that our method outperforms several existing algorithms in centroiding accuracy and exhibits superior resilience to high sensor noise and stray light interference. An additional benefit of our algorithms is that they can be executed in real-time on low-power edge AI processors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Proposed Method</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+        <div class="item" style="text-align: center;">
+          <img src="static/images/flowchart.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Flowchart of our star detection and centroiding method. 
+            Noisy star images with stray light are fed into a UNet-based CNN. 
+            The neural network outputs both a binary segmentation map of star pixels versus background and a distance map of each pixel to the nearest star centroid. 
+            Using the distance information and the pixel coordinates, star centroiding now becomes a trilateration problem and can be directly solved using a least squares solution.          
+          </h2>
+        </div>
+        <div class="item" style="text-align: center;">
+          <img src="static/images/data.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Training data generation procedure of our method.
+            The noiseless simulated star images are merged with noisy frames containing stray light captured by actual cameras to create training inputs to CNN. 
+            Additionally, two sets of training labels are generated: training labels 1, consisting of binary segmentation maps, and training labels 2, comprising distance maps.
+          </h2>
+        </div>
+    </div>
+  </div>
+  </div>
+  </section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Experiment Results</h2>
+        <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item" style="text-align: center;">
+          <img src="static/images/night.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Our method with two different CNN models (ELUNet and MobileUNet) achieve significantly better attitude determination accuracy than the traditional approaches in the night sky test.
+          </h2>
+        </div>
+
+        <div class="item" style="text-align: center;">
+          <img src="static/images/night_stray.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            While both models are affected by stray light, their accuracy remains comparable to typical commercial CubeSat star trackers.
+          </h2>
+        </div>
+
+        <div class="item" style="text-align: center;">
+          <img src="static/images/TPU.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Our method can be executed in real-time on low-power edge AI processors.
+          </h2>
+        </div>
+
+        <div class="item" style="text-align: center;">
+          <img src="static/images/attitude.png" alt="MY ALT TEXT"/>
+          <h2 class="subtitle has-text-centered">
+            Attitude outputs of our method and the traditional methods.
+            The inertial-to-body attitude outputs were converted to 3-2-1 Euler angles representing right ascension, declination, and roll. 
+            The right ascension would be expected to change linearly at Earth's sidereal rate, while the declination and roll remain constant. 
+            The cross-boresight and around-boresight accuracy of a star tracker can be modeled as the standard deviations of the declination and roll.
+            Compared to the tradtional methods, our method, both with ELUNet and MobileUnet, generated more consistent attitude outputs due to its higher centroiding accuracy.
+          </h2>
+        </div>
+
+    </div>
+  </div>
+  </div>
+  </section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Night Sky Test</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/night_NN.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Our method (with MobileUNet).
+            Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
+            Our method detects and identifies stars more consistently than the traditional method.
+          </h2>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/night_baseline.mp4" type="video/mp4" />
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Traditional Method (Sun et al's + Gaussian Grid).
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Night Sky Test, Stray light</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/straylight_NN.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Our method (with ELUNet).
+            Detected stars are highlighted with green circles, while identified stars display their Hippacros catalog ids and magnitude at the top.
+            Our method achieves accurate star detection and centroiding in the presence of stray light, while the traditional method completely fails.
+          </h2>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/straylight_baseline.mp4"
+            type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Traditional Method (Sun et al's + Center of Gravity).
+          </h2>
+        </div>
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/Moon.mp4" type="video/mp4">
+          </video>
+          <h2 class="subtitle has-text-centered">
+            Our method performs well even in the presence of the moon.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
